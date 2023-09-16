@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import dynamic from "next/dynamic";
+
 
 type Props = {
   children: React.ReactNode;
@@ -14,4 +16,5 @@ const Providers = ({ children }: Props) => {
   );
 };
 
-export default Providers;
+export default dynamic (() => Promise.resolve(Providers), {ssr: false})
+

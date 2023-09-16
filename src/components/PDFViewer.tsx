@@ -1,4 +1,6 @@
 import React from "react";
+import dynamic from "next/dynamic";
+
 
 type Props = { pdf_url: string };
 
@@ -11,4 +13,5 @@ const PDFViewer = ({ pdf_url }: Props) => {
   );
 };
 
-export default PDFViewer;
+export default dynamic (() => Promise.resolve(PDFViewer), {ssr: false})
+

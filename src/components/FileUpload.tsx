@@ -7,6 +7,8 @@ import { useDropzone } from "react-dropzone";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import dynamic from "next/dynamic";
+
 
 const FileUpload = () => {
   const router = useRouter();
@@ -90,4 +92,5 @@ const FileUpload = () => {
   );
 };
 
-export default FileUpload;
+export default dynamic (() => Promise.resolve(FileUpload), {ssr: false})
+

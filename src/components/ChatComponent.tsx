@@ -8,6 +8,8 @@ import MessageList from "./MessageList";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Message } from "ai";
+import dynamic from "next/dynamic";
+
 
 type Props = { chatId: number };
 
@@ -71,4 +73,5 @@ const ChatComponent = ({ chatId }: Props) => {
   );
 };
 
-export default ChatComponent;
+export default dynamic (() => Promise.resolve(ChatComponent), {ssr: false})
+

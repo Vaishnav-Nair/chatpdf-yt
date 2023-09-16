@@ -7,6 +7,7 @@ import { MessageCircle, PlusCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import axios from "axios";
 import SubscriptionButton from "./SubscriptionButton";
+import dynamic from "next/dynamic";
 
 type Props = {
   chats: DrizzleChat[];
@@ -55,4 +56,5 @@ const ChatSideBar = ({ chats, chatId, isPro }: Props) => {
   );
 };
 
-export default ChatSideBar;
+export default dynamic (() => Promise.resolve(ChatSideBar), {ssr: false})
+

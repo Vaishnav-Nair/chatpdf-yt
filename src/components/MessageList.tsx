@@ -2,6 +2,8 @@ import { cn } from "@/lib/utils";
 import { Message } from "ai/react";
 import { Loader2 } from "lucide-react";
 import React from "react";
+import dynamic from "next/dynamic";
+
 
 type Props = {
   isLoading: boolean;
@@ -45,4 +47,4 @@ const MessageList = ({ messages, isLoading }: Props) => {
   );
 };
 
-export default MessageList;
+export default dynamic (() => Promise.resolve(MessageList), {ssr: false})

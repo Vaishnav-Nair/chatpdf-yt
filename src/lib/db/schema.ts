@@ -26,9 +26,9 @@ export const messages = pgTable("messages", {
   chatId: integer("chat_id")
     .references(() => chats.id)
     .notNull(),
-  content: text("content").notNull(),
+  content: text("contentt").notNull(),
   createdAt: timestamp("created_at").notNull().defaultNow(),
-  role: userSystemEnum("role").notNull(),
+  role: userSystemEnum("rolee").notNull(),
 });
 
 export const userSubscriptions = pgTable("user_subscriptions", {

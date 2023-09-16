@@ -2,6 +2,8 @@
 import React from "react";
 import { Button } from "./ui/button";
 import axios from "axios";
+import dynamic from "next/dynamic";
+
 
 type Props = { isPro: boolean };
 
@@ -25,4 +27,5 @@ const SubscriptionButton = (props: Props) => {
   );
 };
 
-export default SubscriptionButton;
+export default dynamic (() => Promise.resolve(SubscriptionButton), {ssr: false})
+
